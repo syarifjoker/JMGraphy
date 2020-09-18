@@ -7,7 +7,7 @@
                 <h2>Booking Event List</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('pages.booking_register') }}"> Register New Booking</a>
+                <a class="btn btn-success" href="{{ route('booking_register') }}"> Register New Booking</a>
             </div>
         </div>
     </div>
@@ -30,22 +30,22 @@
             <th>Job Status</th>
             <th width="250px">Action</th>
         </tr>
-        @foreach ($booking as $booking)
+        @foreach ($booking as $b)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ ++$booking->name}}</td>
-            <td>{{ ++$booking->contact_number}}</td>
-            <td>{{ ++$booking->event_name}}</td>
-            <td>{{ ++$booking->event_date}}</td>
-            <td>{{ ++$booking->event_location}}</td>
-            <td>{{ ++$booking->package}}</td>
-            <td>{{ ++$booking->status}}</td>
+            <td>{{ ++$b->name}}</td>
+            <td>{{ ++$b->contact_number}}</td>
+            <td>{{ ++$b->event_name}}</td>
+            <td>{{ ++$b->event_date}}</td>
+            <td>{{ ++$b->event_location}}</td>
+            <td>{{ ++$b->package}}</td>
+            <td>{{ ++$b->status}}</td>
             <td>
-                <form action="{{ route('booking.destroy',$booking->booking_id) }}" method="POST">
+                <form action="#" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('pages.booking_show',$blog->booking_id) }}">Show</a>
+                    <!-- <a class="btn btn-info" href="{{ route('pages.booking_show',$blog->booking_id) }}">Show</a>
     
-                    <a class="btn btn-primary" href="{{ route('pages.booking_edit',$booking_id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('booking_edit',$booking_id) }}">Edit</a> -->
    
                     @csrf
                     @method('DELETE')

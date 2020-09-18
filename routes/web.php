@@ -22,8 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about');
 Route::get('/pricing', 'PagesController@pricing');
-Route::get('/booking_list', 'BookingController@index');
-Route::get('/booking_register', 'BookingController@booking_register');
+Route::get('/booking_list', 'BookingController@index')->name('booking_list');
+Route::get('/booking_register', 'BookingController@create')->name('booking_register');
 
 
 Route::resource('booking','BookingController');
