@@ -43,9 +43,9 @@
             <td>
                 <form action="#" method="POST">
    
-                    <!-- <a class="btn btn-info" href="{{ route('pages.booking_show',$blog->booking_id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('booking_show',$b->booking_id) }}">Show</a>
     
-                    <a class="btn btn-primary" href="{{ route('booking_edit',$booking_id) }}">Edit</a> -->
+                    <a class="btn btn-primary" href="{{ route('booking_edit',$b->booking_id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')

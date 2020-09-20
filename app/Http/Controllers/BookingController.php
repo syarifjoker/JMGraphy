@@ -49,7 +49,7 @@ class BookingController extends Controller
   
         Booking::create($request->all());
    
-        return redirect()->route('pages.booking_list')
+        return redirect()->route('booking_list')
                         ->with('success','Event booking created successfully.');
     }
 
@@ -61,7 +61,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //return view('pages.show',compact('booking'));
+        return view('pages.booking_show',compact('booking'));
     }
 
     /**
@@ -72,7 +72,7 @@ class BookingController extends Controller
      */
     public function edit(Booking $booking)
     {
-        //
+        return view('pages.booking_edit',compact('booking'));
     }
 
     /**
@@ -84,7 +84,20 @@ class BookingController extends Controller
      */
     public function update(Request $request, Booking $booking)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'contact_number'=> 'required',
+            'event_name'=> 'required',
+            'event_date'=> 'required',
+            'event_location'=> 'required',
+            'package'=> 'required',
+            'status'=> 'required'
+        ]);
+  
+        $booking->update($request->all());
+  
+        return redirect()->route('pages.booking_list')
+                        ->with('success','Event updated successfully');
     }
 
     /**
@@ -95,6 +108,9 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+  
+        return redirect()->route('pages.booking_list')
+                        ->with('success','Event deleted successfully');
     }
 }
