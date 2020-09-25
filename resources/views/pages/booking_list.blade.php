@@ -32,14 +32,14 @@
         </tr>
         @foreach ($booking as $b)
         <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ ++$b->name}}</td>
-            <td>{{ ++$b->contact_number}}</td>
-            <td>{{ ++$b->event_name}}</td>
-            <td>{{ ++$b->event_date}}</td>
-            <td>{{ ++$b->event_location}}</td>
-            <td>{{ ++$b->package}}</td>
-            <td>{{ ++$b->status}}</td>
+            <td>{{ $b->booking_id }}</td>
+            <td>{{ $b->name}}</td>
+            <td>{{ $b->contact_number}}</td>
+            <td>{{ $b->event_name}}</td>
+            <td>{{ $b->event_date}}</td>
+            <td>{{ $b->event_location}}</td>
+            <td>{{ $b->package}}</td>
+            <td>{{ $b->status}}</td>
             <td>
                 <form action="#" method="POST">
    

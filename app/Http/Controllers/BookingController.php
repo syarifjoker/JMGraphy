@@ -59,8 +59,12 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function show(Booking $booking)
+
+    public $bid;
+    public function show($bid)
     {
+        $booking = booking :: where ('booking_id', $bid) -> first();
+
         return view('pages.booking_show',compact('booking'));
     }
 
@@ -70,8 +74,9 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booking $booking)
+    public function edit($bid)
     {
+        $booking = booking :: where ('booking_id', $bid) -> first();
         return view('pages.booking_edit',compact('booking'));
     }
 
@@ -85,6 +90,7 @@ class BookingController extends Controller
     public function update(Request $request, Booking $booking)
     {
         $request->validate([
+            'booking_id' => 'required',
             'name' => 'required',
             'contact_number'=> 'required',
             'event_name'=> 'required',
