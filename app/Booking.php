@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    protected $fillable = ['name','contact_number','event_name','event_date','event_location','package','status'];
+    protected $fillable = ['booking_id','name','contact_number','event_name','event_date','event_location','package','status'];
 }

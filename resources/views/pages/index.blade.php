@@ -72,7 +72,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <a style="color:black;"class="dropdown-item" href="#">
+                                        <a style="color:black;"class="dropdown-item" href="{{ route('admin_user') }}">
                                             Dashboard
                                         </a>
                                     </li>

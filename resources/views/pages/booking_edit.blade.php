@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Blog</h2>
+                <h2>Edit Event</h2>
             </div>
         </div>
     </div>
@@ -20,15 +20,14 @@
         </div>
     @endif
 
-    <form action="{{ route('booking.update',$booking->booking_id)}}" method="POST">
+    <form action="{{ route('booking_update')}}" method="GET">
         @csrf
-        @method('PUT')
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="order_id">Order ID:</label>
-                    <input type="text" name="order_id" value="{{ $booking->booking_id }}" disabled>
+                    <label for="booking_id">Order ID:</label>
+                    <input type="text" name="booking_id" value="{{ $booking->booking_id }}" readonly="readonly">
                 </div>
             </div>
         

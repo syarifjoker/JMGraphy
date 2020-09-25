@@ -41,7 +41,7 @@
             <td>{{ $b->package}}</td>
             <td>{{ $b->status}}</td>
             <td>
-                <form action="#" method="POST">
+                <form action="{{ route('booking_destroy',$b->booking_id) }}" method="POST">
    
                     <a class="btn btn-info" href="{{ route('booking_show',$b->booking_id) }}">Show</a>
     
@@ -49,7 +49,6 @@
    
                     @csrf
                     @method('DELETE')
-      
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>

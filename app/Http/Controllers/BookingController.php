@@ -87,7 +87,7 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request)
     {
         $request->validate([
             'booking_id' => 'required',
@@ -99,10 +99,20 @@ class BookingController extends Controller
             'package'=> 'required',
             'status'=> 'required'
         ]);
-  
-        $booking->update($request->all());
-  
-        return redirect()->route('pages.booking_list')
+            
+        $booking = booking :: find ($request->get('booking_id')) ;
+        dd($booking);
+        $booking->name =  $request->get('name');
+        $booking->contact_number =  $request->get('contact_number');
+        $booking->event_name =  $request->get('event_name');
+        $booking->event_date =  $request->get('event_date');
+        $booking->event_location =  $request->get('event_location');
+        $booking->package =  $request->get('package');
+        $booking->status =  $request->get('status');
+        
+        $booking->save();
+        
+        return redirect()->route('booking_list')
                         ->with('success','Event updated successfully');
     }
 
@@ -112,11 +122,12 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($bid)
     {
+        $booking = booking :: where ('booking_id', $bid);
         $booking->delete();
   
-        return redirect()->route('pages.booking_list')
+        return redirect()->route('booking_list')
                         ->with('success','Event deleted successfully');
     }
 }
