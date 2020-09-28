@@ -18,11 +18,15 @@ class PagesController extends Controller
         return view('pages.pricing');
     }
 
-    public function booking_list(){
-        return view('pages.booking_list');
+    public function admin_user(){
+        return view('pages.admin_user');
     }
 
-    public function booking_register(){
-        return view('pages.booking_register');
+    public function admin_main(){
+        return view('pages.admin_main');
+    }
+
+    public function admin_booking(){
+        return view('pages.admin_booking');
     }
 }

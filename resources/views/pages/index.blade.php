@@ -43,7 +43,7 @@
                 <div class="collapse navbar-collapse" id="bs-navbar">
                     <ul id="nav" class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="index">Home</a>
+                            <a href="{{ route('home') }}">Home</a>
                         </li>
                         <li>
                             <a href="#features">Services</a>
@@ -72,7 +72,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <a style="color:black;"class="dropdown-item" href="{{ route('admin_user') }}">
+                                        <a style="color:black;"class="dropdown-item" href="{{ route('admin_main') }}">
                                             Dashboard
                                         </a>
                                     </li>

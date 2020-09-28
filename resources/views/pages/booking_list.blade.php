@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Booking Event List</h2>
+                <h2><b>Booking Event List</b></h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('booking_register') }}"> Register New Booking</a>
@@ -19,26 +19,20 @@
     @endif
 
     <table class="table table-bordered"><table class="table table-bordered">
-        <tr>
+        <tr style="background-color:#008080; color:white">
             <th>Order ID #</th>
             <th>Client Name</th>
-            <th>Client Contact Number</th>
+            <th>Contact Number</th>
             <th>Event Name</th>
-            <th>Event Date</th>
-            <th>Event Location</th>
-            <th>Package</th>
             <th>Job Status</th>
-            <th width="250px">Action</th>
+            <th width="350px">Action</th>
         </tr>
         @foreach ($booking as $b)
-        <tr>
+        <tr style="background-color:white">
             <td>{{ $b->booking_id }}</td>
             <td>{{ $b->name}}</td>
             <td>{{ $b->contact_number}}</td>
             <td>{{ $b->event_name}}</td>
-            <td>{{ $b->event_date}}</td>
-            <td>{{ $b->event_location}}</td>
-            <td>{{ $b->package}}</td>
             <td>{{ $b->status}}</td>
             <td>
                 <form action="{{ route('booking_destroy',$b->booking_id) }}" method="POST">

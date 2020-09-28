@@ -63,7 +63,7 @@ class BookingController extends Controller
     public $bid;
     public function show($bid)
     {
-        $booking = booking :: where ('booking_id', $bid) -> first();
+        $booking = Booking :: where ('booking_id', $bid) -> first();
 
         return view('pages.booking_show',compact('booking'));
     }
@@ -74,9 +74,9 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit($bid)
+    public function edit(Request $request, $bid)
     {
-        $booking = booking :: where ('booking_id', $bid) -> first();
+        $booking = Booking :: where ('booking_id', $bid) -> first();
         return view('pages.booking_edit',compact('booking'));
     }
 
@@ -100,8 +100,9 @@ class BookingController extends Controller
             'status'=> 'required'
         ]);
             
-        $booking = booking :: find ($request->get('booking_id')) ;
+        $booking = Booking :: find ($request->get('booking_id')) ;
         dd($booking);
+        $booking->booking_id =  $request->get('booking_id');
         $booking->name =  $request->get('name');
         $booking->contact_number =  $request->get('contact_number');
         $booking->event_name =  $request->get('event_name');
@@ -110,7 +111,7 @@ class BookingController extends Controller
         $booking->package =  $request->get('package');
         $booking->status =  $request->get('status');
         
-        $booking->save();
+        Booking :: update('update booking set name = ?,contact_number=?,event_name=?,event_date=?, event_location=?, package=?, status=? where booking_id = ?',[$name,$contact_number,$event_name,$event_date,$event_location,$package,$status,$booking_id]);
         
         return redirect()->route('booking_list')
                         ->with('success','Event updated successfully');
@@ -124,7 +125,7 @@ class BookingController extends Controller
      */
     public function destroy($bid)
     {
-        $booking = booking :: where ('booking_id', $bid);
+        $booking = Booking :: where ('booking_id', $bid);
         $booking->delete();
   
         return redirect()->route('booking_list')

@@ -27,7 +27,7 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a href="{{ route('home') }}" class="simple-text logo-normal">
           JM GRAPHY ADMIN
         </a></div>
       <div class="sidebar-wrapper">
@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="{{ route('booking_list') }}">
               <i class="material-icons">content_paste</i>
               <p>Booking List</p>
             </a>

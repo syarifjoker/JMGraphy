@@ -20,7 +20,7 @@
         </div>
     @endif
 
-    <form action="{{ route('booking_update')}}" method="GET">
+    <form action="{{ route('booking_update')}}" method="POST">
         @csrf
 
         <div class="row">
