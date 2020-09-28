@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="bs-navbar">
             <ul id="nav" class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="index">Home</a>
+                    <a href="{{ url('/') }}">Home</a>
                 </li>
                 <li>
                     <a href="#features">Services</a>

@@ -29,7 +29,7 @@ Route::get('/booking_list', 'BookingController@index')->name('booking_list');
 Route::get('/booking_register', 'BookingController@create')->name('booking_register');
 Route::get('/booking_show/{id}', 'BookingController@show')->name('booking_show');
 Route::get('/booking_edit/{id}', 'BookingController@edit')->name('booking_edit');
-Route::post('/booking_update', 'BookingController@update')->name('booking_update');
+Route::patch('/booking_update/{id}', 'BookingController@update')->name('booking_update');
 Route::delete('/booking_destroy/{id}', 'BookingController@destroy')->name('booking_destroy');
 
 Route::resource('booking','BookingController');

@@ -20,7 +20,7 @@
 
     <table class="table table-bordered"><table class="table table-bordered">
         <tr style="background-color:#008080; color:white">
-            <th>Order ID #</th>
+            <th>Order ID</th>
             <th>Client Name</th>
             <th>Contact Number</th>
             <th>Event Name</th>

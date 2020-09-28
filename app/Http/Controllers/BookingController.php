@@ -48,7 +48,7 @@ class BookingController extends Controller
         ]);
   
         Booking::create($request->all());
-   
+        
         return redirect()->route('booking_list')
                         ->with('success','Event booking created successfully.');
     }
@@ -87,21 +87,9 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
-    {
-        $request->validate([
-            'booking_id' => 'required',
-            'name' => 'required',
-            'contact_number'=> 'required',
-            'event_name'=> 'required',
-            'event_date'=> 'required',
-            'event_location'=> 'required',
-            'package'=> 'required',
-            'status'=> 'required'
-        ]);
-            
-        $booking = Booking :: find ($request->get('booking_id')) ;
-        dd($booking);
+    public function update(Request $request, $bid)
+    {            
+        $booking = Booking :: find ($bid) ;
         $booking->booking_id =  $request->get('booking_id');
         $booking->name =  $request->get('name');
         $booking->contact_number =  $request->get('contact_number');
@@ -111,7 +99,20 @@ class BookingController extends Controller
         $booking->package =  $request->get('package');
         $booking->status =  $request->get('status');
         
-        Booking :: update('update booking set name = ?,contact_number=?,event_name=?,event_date=?, event_location=?, package=?, status=? where booking_id = ?',[$name,$contact_number,$event_name,$event_date,$event_location,$package,$status,$booking_id]);
+        $booking->save();
+
+            $request->validate([
+                'booking_id' => 'required',
+                'name' => 'required',
+                'contact_number'=> 'required',
+                'event_name'=> 'required',
+                'event_date'=> 'required',
+                'event_location'=> 'required',
+                'package'=> 'required',
+                'status'=> 'required'
+            ]);
+
+        $booking->update($request->all());
         
         return redirect()->route('booking_list')
                         ->with('success','Event updated successfully');

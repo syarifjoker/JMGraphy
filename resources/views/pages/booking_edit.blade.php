@@ -20,8 +20,9 @@
         </div>
     @endif
 
-    <form action="{{ route('booking_update')}}" method="POST">
-        @csrf
+    <form action="{{ route('booking_update',$booking->booking_id) }}" method="POST">
+        {{ csrf_field() }}
+        {{ method_field('PATCH') }}
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -106,7 +107,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
 
