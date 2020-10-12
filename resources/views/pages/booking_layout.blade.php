@@ -60,7 +60,7 @@
             <li class="nav-item ">
               <a class="nav-link" href="./icons.html">
                 <i class="material-icons">bubble_chart</i>
-                <p>Register Staff</p>
+                <p>Crew Staff</p>
               </a>
             </li>
           </ul>
