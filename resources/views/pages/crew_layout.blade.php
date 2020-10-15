@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="admin/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-  JM Graphy - Booking List
+  JM Graphy - Crew List
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->

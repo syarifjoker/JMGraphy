@@ -25,8 +25,4 @@ class PagesController extends Controller
     public function admin_main(){
         return view('pages.admin_main');
     }
-
-    public function admin_booking(){
-        return view('pages.admin_booking');
-    }
 }

@@ -22,9 +22,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about');
 Route::get('/pricing', 'PagesController@pricing');
+
+//Admin Site
 Route::get('/admin_user', 'PagesController@admin_user')->name('admin_user');
 Route::get('/admin_main', 'PagesController@admin_main')->name('admin_main');
-Route::get('/admin_booking', 'PagesController@admin_booking')->name('admin_booking');
+
+//Booking Site
 Route::get('/booking_list', 'BookingController@index')->name('booking_list');
 Route::get('/booking_register', 'BookingController@create')->name('booking_register');
 Route::get('/booking_show/{id}', 'BookingController@show')->name('booking_show');
@@ -32,4 +35,7 @@ Route::get('/booking_edit/{id}', 'BookingController@edit')->name('booking_edit')
 Route::patch('/booking_update/{id}', 'BookingController@update')->name('booking_update');
 Route::delete('/booking_destroy/{id}', 'BookingController@destroy')->name('booking_destroy');
 
+//Crew Site
+
+Route::get('/crew_list', 'CrewController@index')->name('crew_list');
 Route::resource('booking','BookingController');
